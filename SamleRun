@@ -1,0 +1,89 @@
+Client 1
+
+nihalsharmas-MacBook-Pro:DummyChat nihalsharma$ python3 chat/client.py localhost 5000
+
+Connected to remote host. Start sending messages
+<You> {'register':'true', 'sender':'987654321'}
+<You>
+Server:Here is your key l100ninlnn. Use it for further communications.
+<You>
+<You>
+Server:The message received is not in a proper format. Send a valid json with keys - 'message', 'sender', 'receiver', 'token'.
+<You>
+0011001100:Hello User
+<You> {'message':'Hello User', 'sender':'987654321',  'receiver':'0011001100', 'token':'l100ninlnn'}
+<You>
+123456789:Hello User
+<You> {'message':'Hello User', 'sender':'987654321',  'receiver':'0011001100', 'token':'l100ninlnde'}
+<You>
+Server:Reveal your identity son. Send me message with your key else send the register packet.
+<You>
+Server:User 123456789 is went offline.
+<You> {'message':'Hello User', 'sender':'987654321',  'receiver':'123456789',  'token':'l100ninlnde'}
+<You>
+Server:Reveal your identity son. Send me message with your key else send the register packet.
+<You> {'message':'Hello User', 'sender':'987654321',  'receiver':'123456789',  'token':'l100ninlnn'}
+<You>
+Server:Receiver is not online. He will get the message when he is up.
+<You>
+Server:User 123456789 is now online. You can talk to him.
+<You>
+
+===================================================================================================================
+
+
+Client 2
+
+nihalsharmas-MacBook-Pro:DummyChat nihalsharma$ python3 chat/client.py localhost 5000
+
+Connected to remote host. Start sending messages
+<You> {'register':'true', 'sender':'0011001100'}
+<You>
+Server:Here is your key 19n18inhha. Use it for further communications.
+<You> {'message':'Hello User', 'sender':'0011001100', 'receiver':'987654321', 'token':'19n18inhha'}
+<You>
+987654321:Hello User
+<You>
+123456789:Hello User
+<You>
+User 123456789 is went offline.
+<You> {'message':'Hello User', 'sender':'0011001100', 'receiver':'123456789',  'token':'19n18inhha'}
+<You>
+Server:Receiver is not online. He will get the message when he is up.
+<You>
+User 123456789 is now online. You can talk to him.
+<You>
+
+===================================================================================================================
+
+Client 3
+nihalsharmas-MacBook-Pro:DummyChat nihalsharma$ python3 chat/client.py localhost 5000
+
+Server:Connected to remote host. Start sending messages
+<You> {'register':'true', 'sender':'123456789'}
+<You>
+Server:Here is your key ln8lha1i20. Use it for further communications.
+<You> {'message':'Hello User', 'sender':'123456789', 'receiver':'0011001100', 'token':'ln8lha1i20'}
+<You> {'message':'Hello User', 'sender':'123456789', 'receiver':987654321', 'token':'ln8lha1i20'}
+<You>
+Server:The message received is not in a proper format. Send a valid json with keys - 'message', 'sender', 'receiver', 'token'.
+<You> {'message':'Hello User', 'sender':'123456789',
+'receiver':'987654321', 'token':'ln8lha1i20'}
+
+Disconnecting
+<You> ^CTraceback (most recent call last):
+  File "chat/client.py", line 47, in <module>
+    read_sockets, write_sockets, error_sockets = select.select(socket_list, [], [])
+KeyboardInterrupt
+
+nihalsharmas-MacBook-Pro:DummyChat nihalsharma$ python3 chat/client.py localhost 5000
+Server:Connected to remote host. Start sending messages
+<You>  {'reconnect':'true', 'token':'ln8lha1i20', 'sender':'123456789'}
+<You>
+Server:You have offline messages.
+<You>
+987654321:Hello User
+<You>
+0011001100:Hello User
+<You>
+
