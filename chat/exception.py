@@ -1,0 +1,2 @@
+class ChatServerInitException(Exception):
+    pass
